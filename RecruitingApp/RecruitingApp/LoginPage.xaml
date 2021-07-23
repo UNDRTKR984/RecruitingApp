@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecruitingApp.LoginPage">
+    <StackLayout>
+        <Label Text="Recruiting App Login" FontSize="Title" HorizontalOptions="Center"/>
+        <Label Text="use 'test' as the username and password" TextColor="Red" FontSize="Body" HorizontalOptions="Center"/>
+        <Entry x:Name="Username" Placeholder="Username" HorizontalOptions="Center" WidthRequest="200" FontSize="Large" Margin="0,100,0,0"/>
+        <Entry x:Name="Password" Placeholder="Password" IsPassword="True" HorizontalOptions="Center" WidthRequest="200" FontSize="Large"/>
+        <Button x:Name="loginButton" Text="Submit" HorizontalOptions="Center" WidthRequest="200" FontSize="Large" Clicked="loginButton_Clicked" Margin="0,30,0,0"/>
+    </StackLayout>
+</ContentPage>

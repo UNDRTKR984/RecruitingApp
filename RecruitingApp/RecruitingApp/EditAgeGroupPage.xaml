@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecruitingApp.EditAgeGroupPage"
+             Title="{Binding Year, StringFormat='Age Group: {0:yyyy}'}">
+
+    <StackLayout x:Name="courseStack" Orientation="Vertical" Padding="5,0">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+            <Label x:Name="year" VerticalOptions="Center" Text="Change Age Group: "/>
+            <Picker x:Name="yearTime" HorizontalOptions="Center" WidthRequest="75">
+                <Picker.Items>
+                    <x:String>1999</x:String>
+                    <x:String>2000</x:String>
+                    <x:String>2001</x:String>
+                    <x:String>2002</x:String>
+                    <x:String>2003</x:String>
+                    <x:String>2004</x:String>
+                    <x:String>2005</x:String>
+                    <x:String>2006</x:String>
+                    <x:String>2007</x:String>
+                    <x:String>2008</x:String>
+                    <x:String>2009</x:String>
+                    <x:String>2010</x:String>
+                    <x:String>2011</x:String>
+                    <x:String>2012</x:String>
+                    <x:String>2013</x:String>
+                    <x:String>2014</x:String>
+                    <x:String>2015</x:String>
+                    <x:String>2016</x:String>
+                    <x:String>2017</x:String>
+                    <x:String>2018</x:String>
+                    <x:String>2019</x:String>
+                    <x:String>2020</x:String>
+                    <x:String>2021</x:String>
+                    <x:String>2022</x:String>
+                    <x:String>2023</x:String>
+                    <x:String>2024</x:String>
+                    <x:String>2025</x:String>
+                    <x:String>2026</x:String>
+                    <x:String>2027</x:String>
+                    <x:String>2028</x:String>
+                    <x:String>2029</x:String>
+                    <x:String>2030</x:String>
+                </Picker.Items>
+            </Picker>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="searchTeams" Placeholder="Search for team" FontSize="Small" WidthRequest="250" HeightRequest="35" TextChanged="searchTeams_TextChanged"/>
+            <Button x:Name="AddCourseButton" Text="Add Team" Clicked="AddTeamButton_Clicked"  FontSize="Small" HorizontalOptions="EndAndExpand" HeightRequest="35" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label VerticalOptions="Center" FontSize="Body">Teams in this age group</Label>
+            <Label VerticalOptions="Center" HorizontalOptions="EndAndExpand" FontSize="Body">Level</Label>
+        </StackLayout>  
+        
+
+        <ListView x:Name="associatedTeamsListView" HasUnevenRows="True" ItemTapped="associatedTeamsListView_ItemTapped" SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Text="{Binding Name}" FontSize="Body" TextColor="Black"/>
+                            <Label Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="{Binding Level}" FontSize="Body" TextColor="Black"/>
+                        </Grid>
+
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout Orientation="Horizontal" Padding="0,0,0,2">
+            <Button x:Name="deleteButton" HorizontalOptions="FillAndExpand" Text="Delete Age Group" Clicked="deleteButton_Clicked"  HeightRequest="40" BackgroundColor="#ff6b81"/>
+            <Button x:Name="saveButton" HorizontalOptions="FillAndExpand" Text="Save Age Group"  Clicked="saveButton_Clicked" HeightRequest="40" BackgroundColor="#7bed9f"/>
+        </StackLayout>
+
+
+    </StackLayout>
+</ContentPage>

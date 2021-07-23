@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecruitingApp.AddPlayerPage"
+             Title="{Binding Name, StringFormat='Add a Player to {0}'}">
+    <StackLayout Padding="5,0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Column="0" x:Name="playerNumber" Placeholder="Number" FontSize="Body" />
+            <Entry Grid.Column="1" x:Name="playerFirstName" Placeholder="First Name" FontSize="Body"  WidthRequest="150"/>
+            <Entry Grid.Column="2" x:Name="playerLastName" Placeholder="Last Name" FontSize="Body" WidthRequest="175" />
+        </Grid>        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Column="0" x:Name="position" Placeholder="Position" FontSize="Body" HorizontalOptions="StartAndExpand" VerticalOptions="Center" WidthRequest="200"/>
+            <Label Grid.Column="1" Text="Rating:" FontSize="Body" VerticalOptions="Center"/>
+            <Picker Grid.Column="2" x:Name="playerRating" FontSize="Body" HorizontalTextAlignment="Center" HorizontalOptions="Fill" WidthRequest="30">
+                <Picker.Items>
+                    <x:String>5</x:String>
+                    <x:String>4</x:String>
+                    <x:String>3</x:String>
+                    <x:String>2</x:String>
+                    <x:String>1</x:String>
+                </Picker.Items>
+            </Picker>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Column="0" x:Name="email" FontSize="Body" Placeholder="Email"/>
+            <Entry Grid.Column="1" x:Name="cellPhone" FontSize="Body" Placeholder="Cell Phone"/>
+        </Grid>        
+        
+        <Entry x:Name="address" FontSize="Body" Placeholder="Address"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Column="0" x:Name="city" FontSize="Body" Placeholder="City"/>
+            <Entry Grid.Column="1" x:Name="state" FontSize="Body" Placeholder="State" MaxLength="2"/>
+            <Entry Grid.Column="2" x:Name="zip" FontSize="Body" Placeholder="ZIP"/>
+        </Grid>
+        
+        <StackLayout Orientation="Horizontal">
+            <Label VerticalOptions="Center" Text="Actively Recruiting?"/>
+            <CheckBox x:Name="activelyRecruiting"/>
+        </StackLayout>
+        <Label Text="Notes:"/>
+        <ScrollView HeightRequest="250">
+            <Editor x:Name="notes" Placeholder="Player notes" AutoSize="TextChanges"/>
+        </ScrollView>
+        
+        <Button x:Name="SavePlayerButton" Text="Add Player" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="#7bed9f" Clicked="SavePlayerButton_Clicked"/>
+    </StackLayout>
+</ContentPage>

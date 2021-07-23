@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecruitingApp.EditTeamPage"
+             Title="{Binding TitleText}"
+             >
+
+    <StackLayout Padding="5,0" Orientation="Vertical">
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+            <Entry x:Name="TeamName" FontSize="Body" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="250" Placeholder="Team Name"/>
+            <Label Text="Level: " VerticalOptions="Center"/>
+            <Picker x:Name="level" HorizontalOptions="FillAndExpand" FontSize="Body">
+                <Picker.Items>
+                    <x:String>Gold</x:String>
+                    <x:String>Silver</x:String>
+                    <x:String>Bronze</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>
+                    0
+                </Picker.SelectedIndex>
+            </Picker>
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical">
+            <Label Text="Coach Info" FontSize="Small"/>
+            <Entry x:Name="CoachName" Placeholder="Name" FontSize="Small"/>
+            <Entry x:Name="CoachPhone" Placeholder="Phone Number (enter numbers only)" FontSize="Small"/>
+            <Entry x:Name="CoachEmail" Placeholder="Email Address" FontSize="Small"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+            <Entry x:Name="playerSearch" WidthRequest="200" TextChanged="playerSearch_TextChanged" Placeholder="Player Search" FontSize="Small" />
+            <Button x:Name="AddPlayerButton" Text="Add Player" FontSize="Micro" Clicked="AddPlayerButton_Clicked" HorizontalOptions="EndAndExpand" WidthRequest="150" HeightRequest="40"/>
+        </StackLayout>
+        <Label Text="Players"/>
+        <StackLayout>
+            <ListView x:Name="playersListView" HasUnevenRows="True" SelectionMode="None" ItemTapped="playerListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Number}" TextColor="Black" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Text="{Binding FirstName}" TextColor="Black" VerticalOptions="Center"/>
+                                <Label Grid.Column="2" Text="{Binding LastName}" TextColor="Black" VerticalOptions="Center"/>                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button x:Name="deleteButton" HorizontalOptions="FillAndExpand" Text="Delete Team" Clicked="deleteTeamButton_Clicked"  HeightRequest="40" BackgroundColor="#ff6b81"/>
+            <Button x:Name="saveTeamButton" Text="Save Team" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="#7bed9f" Clicked="saveTeamButton_Clicked"/>
+        </StackLayout>
+        
+
+    </StackLayout>
+</ContentPage>

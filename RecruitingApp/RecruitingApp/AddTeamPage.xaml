@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecruitingApp.AddTeamPage"
+             Title="{Binding Year, StringFormat='Add Team to the {0:yyyy} Age Group'}"
+             >
+    <StackLayout Padding="5,0" Orientation="Vertical">
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+            <Entry x:Name="TeamName" FontSize="Body" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="250" Placeholder="Team Name"/>
+            <Label Text="Level: " VerticalOptions="Center"/>
+            <Picker x:Name="level" HorizontalOptions="FillAndExpand" FontSize="Body">
+                <Picker.Items>
+                    <x:String>Gold</x:String>
+                    <x:String>Silver</x:String>
+                    <x:String>Bronze</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>
+                    0
+                </Picker.SelectedIndex>
+            </Picker>
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical">
+            <Label Text="Coach Info" FontSize="Small"/>
+            <Entry x:Name="CoachName" Placeholder="Name" FontSize="Small"/>
+            <Entry x:Name="CoachPhone" Placeholder="Phone Number (enter numbers only)" FontSize="Small"/>
+            <Entry x:Name="CoachEmail" Placeholder="Email Address" FontSize="Small"/>
+        </StackLayout>
+
+        <Button x:Name="addTeamButton" Text="Add Team" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="#7bed9f" Clicked="addTeamButton_Clicked"/>
+
+    </StackLayout>
+</ContentPage>

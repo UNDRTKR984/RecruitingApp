@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecruitingApp.MainPage"
+             Title="Recruiting App"
+             >
+
+    <StackLayout>
+        <StackLayout HeightRequest="40" Orientation="Horizontal" Padding="2,5,2,0">
+            <Label Text="Age Groups" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center"/>
+            <Label Text="Add Age Group" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+            <Button x:Name="addAgeGroup" Text="+" Clicked="addAgeGroup_Clicked"  WidthRequest="50"/>
+        </StackLayout>
+
+        <ListView x:Name="ageGroupView" ItemTapped="ageGroupView_ItemTapped" HasUnevenRows="True"  SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" VerticalOptions="Start">
+                            <StackLayout x:Name="TermItem" Margin="1" Orientation="Horizontal" BackgroundColor="#DFD1A7" HeightRequest="50">
+                                <Label x:Name="AgeName" TextColor="Black" FontSize="Title" Text="{Binding Name}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <Button x:Name="reportsButton" Text="Reports / Searching" HorizontalOptions="Fill" Clicked="reportsButton_Clicked"/>
+    </StackLayout>
+
+</ContentPage>

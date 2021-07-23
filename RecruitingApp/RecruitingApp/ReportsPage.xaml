@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecruitingApp.ReportsPage"
+             Title="Reports / Searches">
+    <StackLayout Padding="5,0">
+        <StackLayout Orientation="Vertical" >
+            <RadioButton x:Name="playersPerAge" Content="Number Recruits For Each Age Group" FontSize="Small"/>
+            <RadioButton x:Name="playersCreated" Content="Find last 100 players added" FontSize="Small"/>
+            <RadioButton x:Name ="teamSearch" Content="Search For Team" FontSize="Small"/>
+        </StackLayout>
+        <Button x:Name="queryButton" Text="Execute Query" HorizontalOptions="Fill" Clicked="queryButton_Clicked"/>
+        <Label x:Name="reportSection" HorizontalOptions="Fill" IsVisible="true" FontSize="Body"/>
+        <ListView x:Name="last100" IsVisible="false" HasUnevenRows="True" SelectionMode="None" ItemTapped="last100_ItemTapped">
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Number" FontSize="Small"/>
+                    <Label Grid.Column="1" Text="First" FontSize="Small"/>
+                    <Label Grid.Column="2" Text="Last" FontSize="Small"/>
+                    <Label Grid.Column="3" Text="Date" FontSize="Small"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding Number}" FontSize="Small"/>
+                            <Label Grid.Column="1" Text="{Binding FirstName}" FontSize="Small"/>
+                            <Label Grid.Column="2" Text="{Binding LastName}" FontSize="Small"/>
+                            <Label x:Name="createdLabel" Grid.Column="3" Text="{Binding Created, StringFormat='{0:MM/dd/yy hh:mm tt}'}" FontSize="Small"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Entry x:Name="teamSearchEntry" Placeholder="Enter team name" WidthRequest="200" FontSize="Small" IsVisible="False" TextChanged="teamSearchEntry_TextChanged"/>
+        <ListView x:Name="teamGrid" IsVisible="false" HasUnevenRows="True" SelectionMode="None" ItemTapped="teamGrid_ItemTapped">
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Team Name" FontSize="Small" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="Age Group" FontSize="Small" FontAttributes="Bold" Padding="0,0,0,10"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding Name}" FontSize="Small"/>
+                            <Label Grid.Column="1" Text="{Binding AgeGroupString}" FontSize="Small"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+    
+</ContentPage>

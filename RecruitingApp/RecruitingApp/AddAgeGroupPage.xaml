@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecruitingApp.AddAgeGroupPage"
+             Title="Add a New Age Group">
+    <StackLayout>
+        <Label x:Name="year" Text="Year: "/>
+        <Picker x:Name="yearTime">
+            <Picker.Items>
+                <x:String>1999</x:String>
+                <x:String>2000</x:String>
+                <x:String>2001</x:String>
+                <x:String>2002</x:String>
+                <x:String>2003</x:String>
+                <x:String>2004</x:String>
+                <x:String>2005</x:String>
+                <x:String>2006</x:String>
+                <x:String>2007</x:String>
+                <x:String>2008</x:String>
+                <x:String>2009</x:String>
+                <x:String>2010</x:String>
+                <x:String>2011</x:String>
+                <x:String>2012</x:String>
+                <x:String>2013</x:String>
+                <x:String>2014</x:String>
+                <x:String>2015</x:String>
+                <x:String>2016</x:String>
+                <x:String>2017</x:String>
+                <x:String>2018</x:String>
+                <x:String>2019</x:String>
+                <x:String>2020</x:String>
+                <x:String>2021</x:String>
+                <x:String>2022</x:String>
+                <x:String>2023</x:String>
+                <x:String>2024</x:String>
+                <x:String>2025</x:String>
+                <x:String>2026</x:String>
+                <x:String>2027</x:String>
+                <x:String>2028</x:String>
+                <x:String>2029</x:String>
+                <x:String>2030</x:String>
+            </Picker.Items>
+
+        </Picker>
+
+
+        <Button x:Name="saveButton" Text="Add/Save Age Group" BackgroundColor="#7bed9f"  Clicked="saveButton_Clicked"/>
+    </StackLayout>
+</ContentPage>
